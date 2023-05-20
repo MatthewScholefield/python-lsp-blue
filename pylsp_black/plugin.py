@@ -5,7 +5,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Optional
 
-import black
+import blue as black
 from pylsp import hookimpl
 from pylsp._utils import get_eol_chars
 from pylsp.config.config import Config
@@ -56,6 +56,7 @@ def pylsp_settings():
                 "line_length": 88,
                 "preview": False,
                 "cache_config": False,
+                "import_name": "black",
             },
             "yapf": {"enabled": False},
             "autopep8": {"enabled": False},
@@ -87,7 +88,7 @@ def format_document(client_config, document, range=None):
 
 
 def format_text(*, text, config):
-    mode = black.FileMode(
+    mode = __import__(config["import_name"]).FileMode(
         target_versions=config["target_version"],
         line_length=config["line_length"],
         is_pyi=config["pyi"],
