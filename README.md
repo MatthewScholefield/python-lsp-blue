@@ -8,7 +8,9 @@ In the same `virtualenv` as `python-lsp-server`:
 
 ```shell
 pip install git+https://github.com/MatthewScholefield/python-lsp-blue
-pip install blue
+# pip install blue
+# Fork of blue with support for latest black version:
+pip install git+https://github.com/danigm/blue@black-23.3#egg=blue
 ```
 
 Now, configure `blue` as the import name in a new (or an existing) `pyproject.toml` file:
