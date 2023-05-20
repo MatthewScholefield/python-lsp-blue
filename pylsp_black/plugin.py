@@ -136,6 +136,7 @@ def _load_config(filename: str, client_config: Config) -> Dict:
 
     defaults = {
         "line_length": settings.get("line_length", 88),
+        "import_name": settings.get("import_name", "black"),
         "fast": False,
         "pyi": filename.endswith(".pyi"),
         "skip_string_normalization": False,
